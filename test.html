@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Outdoor Care</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            background-color: #d3d3d3; /* Light gray background */
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        header.scrolled {
+            padding: 5px 0;
+            animation: fadeOut 0.3s forwards;
+        }
+        header .company-name {
+            font-size: 1.5rem;
+            margin: 0;
+            transition: opacity 0.3s ease;
+        }
+        header.scrolled .company-name {
+            display: none;
+            animation: fadeOut 0.3s forwards;
+        }
+        header:not(.scrolled) {
+            animation: fadeIn 0.3s forwards;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ddd;
+        }
+        .hero {
+            background: url('https://autumn.revolt.chat/attachments/AXQeKlLPEaX3W5XpQnwvLRg8CH_EkE_1lH55SOmIqQ/istockphoto-950856192-612x612.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero div {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1s ease-out;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #4CAF50;
+            background: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            animation: fadeIn 2s ease-out;
+        }
+        .hero button:hover {
+            background: #ddd;
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #d3d3d3; /* Light gray background */
+            transition: background-color 0.3s ease;
+        }
+        .services, .about, .contact {
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            background-color: #d3d3d3; /* Light gray background */
+        }
+        .services.reveal, .about.reveal, .contact.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .services h2, .about h2, .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            animation: fadeIn 1s ease;
+        }
+        .services p, .about p, .contact p {
+            font-size: 1rem;
+            line-height: 1.6;
+            animation: fadeIn 1s ease;
+        }
+        .services img, .about img, .contact img {
+            width: 100%;
+            height: auto;
+            max-width: 540px; /* To make all images the same size */
+            max-height: 540px; /* To make all images the same size */
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            animation: fadeIn 1s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .services img:hover, .about img:hover, .contact img:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        .services p, .about p, .contact p {
+            margin-top: -10px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        footer {
+            background: #444; /* Darker gray */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="company-name">Elite Outdoor Care</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero" id="home">
+        <div>
+            <h1>Your Trusted Partner for Outdoor Services</h1>
+            <p>Lawn Mowing, Window Cleaning, Snow Shoveling & More</p>
+            <button>Get a Free Quote</button>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <img src="https://autumn.revolt.chat/attachments/SIzQBJovsm036Eam6J60s0UqPAnoH1x8XQ2j7SCIqV/lawn-pattern-540x540.jpg" alt="Lawn Mowing">
+        <p>Lawn Mowing</p>
+        <img src="https://autumn.revolt.chat/attachments/0VrDqFH2WmdgVwKNVD62eEskXEm2S5DkBYlLgWvfKN/What-kind-of-soap-do-professional-window-washers-use_-scaled-1.jpeg" alt="Window Cleaning">
+        <p>Window Cleaning</p>
+        <img src="https://autumn.revolt.chat/attachments/K9k0UAua5tfMRPEUVrQ0rR3__JtWzWzzuIi7BuCwoj/download%20(5).jpg" alt="Snow Shoveling">
+        <p>Snow Shoveling</p>
+        <img src="https://autumn.revolt.chat/attachments/CDCyn2yeAJmv2LhhlBcDPIu8o3Dd39CY7tKOXl7iJr/PowerWash.jpg" alt="Power Washing">
+        <p>Power Washing</p>
+    </section>
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <img src="https://autumn.revolt.chat/attachments/cAdZPjAZkmVDc2dCYE-YZcS2po3_wduKZR6uz1WJfW/download%20(10).png" alt="Our Team">
+        <p>We are a dedicated team of professionals committed to providing top-notch outdoor services. With years of experience, we ensure the best care for your property.</p>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <img src="https://autumn.revolt.chat/attachments/dOiYu_M1Lfp7mr3B4lJI4l5lLcXqod9OZrd30H5gI5/download%20(6).jpg" alt="Contact Us">
+        <p>If you have any questions or would like to schedule a service, please get in touch with us!</p>
+        <p>Email: infooutdoorcare@gmail.com
+</p>
+        <p>Phone: (267) 444-0208</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Elite Outdoor Care. All rights reserved.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('header');
+            var companyName = document.querySelector('.company-name');
+            var hero = document.querySelector('.hero');
+
+            if (window.scrollY > hero.offsetHeight) {
+                header.classList.add('scrolled');
+                companyName.classList.add('hidden');
+            } else {
+                header.classList.remove('scrolled');
+                companyName.classList.remove('hidden');
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            var elements = document.querySelectorAll('.services, .about, .contact');
+            var windowHeight = window.innerHeight;
+            var revealPoint = 150;
+
+            elements.forEach(function(element) {
+                var elementTop = element.getBoundingClientRect().top;
+
+                if(elementTop < windowHeight - revealPoint) {
+                    element.classList.add('reveal');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
